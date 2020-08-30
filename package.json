@@ -1,19 +1,34 @@
 {
   "name": "typescript-starter",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run build-ts && npm run lint",
+    "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet --fix",
+    "build-ts": "rimraf ./build && tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch-node": "nodemon dist/main.js",
+    "watch-ts": "tsc -w",
+    "start": "node dist/main.js",
+    "serve-debug": "nodemon --inspect dist/main.js",
+    "debug": "npm run build && npm run watch-debug",
+    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"Sass,TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run serve-debug\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ts-node": "^7.0.0",
-    "typescript": "^2.9.2"
+    "winston": "^3.3.3"
   },
   "devDependencies": {
-    "@types/node": "^10.5.1"
+    "@types/node": "^10.5.1",
+    "@typescript-eslint/eslint-plugin": "^2.3.1",
+    "@typescript-eslint/parser": "^2.3.1",
+    "eslint": "^6.4.0",
+    "nodemon": "^2.0.4",
+    "rimraf": "^3.0.2",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.3"
   }
 }
