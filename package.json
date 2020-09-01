@@ -1,12 +1,12 @@
 {
   "name": "typescript-starter",
   "version": "0.0.1",
-  "description": "",
-  "main": "main.js",
+  "description": "Starter project for Typescript Node script",
   "scripts": {
     "build": "npm run build-ts && npm run lint",
     "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet --fix",
-    "build-ts": "rimraf ./build && tsc",
+    "build-ts": "rimraf ./build && webpack --config webpack.config.js --mode development",
+    "build-prod": "rimraf ./build && webpack --config webpack.config.js --mode production",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch-node": "nodemon dist/main.js",
     "watch-ts": "tsc -w",
@@ -28,7 +28,10 @@
     "eslint": "^6.4.0",
     "nodemon": "^2.0.4",
     "rimraf": "^3.0.2",
+    "ts-loader": "^8.0.3",
     "ts-node": "^8.4.1",
-    "typescript": "^3.6.3"
+    "typescript": "^3.6.3",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   }
 }

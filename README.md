@@ -16,6 +16,7 @@ It depends only on winston logger library.
 	- [Building the project](#building-the-project)	
 	- [Debugging](#debugging)
 	- [ESLint](#eslint)
+	- [Deploying the app](#deploying-the-app)
 - [Dependencies](#dependencies)
 	- [`dependencies`](#dependencies-1)
 	- [`devDependencies`](#devdependencies)
@@ -57,7 +58,7 @@ The full folder structure of this app is explained below:
 | tsconfig.json            | Config settings for compiling server code written in TypeScript                               |
 | .eslintrc                | Config settings for ESLint code style checking                                                |
 | .eslintignore            | Config settings for paths to exclude from linting                                             |
-
+| webpack.config.js        | Config file for module bundler                                                                |
 
 ### Configuring TypeScript compilation
 TypeScript uses the file `tsconfig.json` to adjust project compile options.
@@ -90,7 +91,8 @@ Below is a list of all the scripts this template has available:
 | `build`                   | Full build. Runs ALL build tasks (`build-ts`, `lint`)                                             |
 | `start`                   | Runs node on `dist/main.js` which is the apps entry point                                         |
 | `watch-node`              | Runs node with nodemon so the process restarts if it crashes. Used in the main watch task         |
-| `build-ts`                | Compiles all source `.ts` files to `.js` files in the `dist` folder                               |
+| `build-ts`                | Compiles all source `.ts` files to `.js` files in the `dist` folder in development mode           |
+| `build-prod`              | Compiles all source `.ts` files to `.js` files in the `dist` folder in production mode            |
 | `watch-ts`                | Same as `build-ts` but continuously watches `.ts` files and re-compiles when needed               |
 | `lint`                    | Runs ESLint on project files                                                                      |
 | `debug`                   | Performs a full build and then serves the app in watch mode                                       |
@@ -157,6 +159,9 @@ Notice that ESLint is not a part of the main watch task.
 
 If you are interested in seeing ESLint feedback as soon as possible, I strongly recommend the [VS Code ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 
+## Deploying the app
+Deploying an application is as simple as distributing dist/main.js file to some folder or remote machine. In this template is using [webpack](https://webpack.js.org/) that takes care of bundling all dependencies and in case of production build source code minification.
+
 # Dependencies
 Dependencies are managed through `package.json`.
 In that file you'll find two sections:
@@ -177,6 +182,8 @@ In that file you'll find two sections:
 | nodemon                         | An utility to restart nodejs                                           |
 | rimraf                          | An utility to remove directories recursively                           |
 | typescript                      | JavaScript compiler/type checker that boosts JavaScript productivity   |
+| webpack                         | Webpack is module bundler for JavaScript apps                          |
+| webpack-cli                     | CLI for Webpack                                                        |
 
 To install or update these dependencies you can use `npm install` or `npm update`.
 

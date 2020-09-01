@@ -1,2 +1,5 @@
 node_modules/
 .idea/
+debug.log
+dist/
+package-lock.json
