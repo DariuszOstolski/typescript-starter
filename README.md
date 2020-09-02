@@ -160,7 +160,7 @@ Notice that ESLint is not a part of the main watch task.
 If you are interested in seeing ESLint feedback as soon as possible, I strongly recommend the [VS Code ESLint extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 
 ## Deploying the app
-Deploying an application is as simple as distributing dist/main.js file to some folder or remote machine. In this template is using [webpack](https://webpack.js.org/) that takes care of bundling all dependencies and in case of production build source code minification.
+Deploying an application is as simple as distributing dist/main.js file to some folder or remote machine. In this template we are using [webpack](https://webpack.js.org/) that takes care of bundling all dependencies and in case of production build source code minification.
 
 # Dependencies
 Dependencies are managed through `package.json`.
